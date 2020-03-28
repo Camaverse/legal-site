@@ -1,3 +1,4 @@
 <template lang="pug">
-  .home
+  .about
+    h1 About
 </template>

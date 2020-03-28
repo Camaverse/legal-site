@@ -17,25 +17,9 @@
             p
                 a.text-light(href="", target="_blank") 18 U.S.C. 2257 Record Keeping Requirements Compliance Statement
             p &copy; 2019 - {{new Date().getFullYear()}} Camaverse.com. All Rights Reseerved
-        cookie-law(@accept="cookieAccepted()")
-            div(slot="message")
-                div
-                | This website uses cookies, local storage and session storage to enhance your experience and collect
-                | statistical data.
-                br
-                | For more information please click on the following our cookie policy.
-                br
-                | By continuing to browse on this website, you accept the use of cookies for the above purposes.
 </template>
 <script>
-import AdSpace from '@/components/AdSpace'
-import AppInit from '../mixins/appInit.mixin'
-import CookieLaw from 'vue-cookie-law'
 export default {
-  components: {
-    AdSpace,
-    CookieLaw
-  },
   computed: {
     appTitle: function () {
       if (process.env.VUE_APP_NSFW === 'false') {
@@ -67,22 +51,16 @@ export default {
           { title: 'Jobs', url: `${process.env.VUE_APP_SITE_BUSINESS}jobs` }
         ],
         Legal: [
-          { title: 'Law Enforcement', url: `${process.env.VUE_APP_SITE_LEGAL}law-enforcement` },
-          { title: 'Terms & Conditions', url: `${process.env.VUE_APP_SITE_LEGAL}terms` },
-          { title: 'Privacy Policy', url: `${process.env.VUE_APP_SITE_LEGAL}privacy` },
-          { title: 'Cookies', url: `${process.env.VUE_APP_SITE_LEGAL}cookies` },
-          { title: 'Anti-Spam', url: `${process.env.VUE_APP_SITE_LEGAL}anti-spam` },
-          { title: 'Refunds', url: `${process.env.VUE_APP_SITE_LEGAL}refunds` }
+          { title: 'Law Enforcement', path: `/law-enforcement` },
+          { title: 'Terms & Conditions', path: `/terms` },
+          { title: 'Privacy Policy', path: `/privacy` },
+          { title: 'Cookies', path: `/cookies` },
+          { title: 'Anti-Spam', path: `/anti-spam` },
+          { title: 'Refunds', path: `/refunds` }
         ]
       }
     }
-  },
-  methods: {
-    cookieAccepted: function () {
-      this.storageDataInit()
-    }
-  },
-  mixins: [AppInit]
+  }
 }
 </script>
 <style lang="scss">

@@ -1,22 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Login from './views/Login.vue'
 import NotFound from './views/404.vue'
-import Tag from '@/views/Tag'
-import Watch from './views/Watch.vue'
 
-import searchRoutes from './config/searchRoutes'
+import LawEnforcement from './views/LawEnforcement.vue'
+import TermsConditions from './views/Terms.vue'
+import PrivacyPolicy from './views/Privacy.vue'
+import Cookies from './views/Cookies.vue'
+import AntiSpam from './views/AntiSpam.vue'
+import Refunds from './views/Refunds.vue'
 
 Vue.use(Router)
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
-  { path: '/login/:token', name: 'Login', component: Login },
-  { path: '/tagged/:tag', name: 'Tag', component: Tag },
-  { path: `/:tag(${searchRoutes.join('|')}|recent|faves)`, name: 'Filtered', component: Tag },
-  { path: '/watch/:slug', name: 'Watch', component: Watch },
-  { path: '*', name: 'Not Found', component: NotFound }
+  { path: '/law-enforcement', name: 'LawEnforcement', component: LawEnforcement },
+  { path: '/terms', name: 'TermsConditions', component: TermsConditions },
+  { path: '/privacy', name: 'PrivacyPolicy', component: PrivacyPolicy },
+  { path: '/cookies', name: 'Cookies', component: Cookies },
+  { path: '/anti-spam', name: 'AntiSpam', component: AntiSpam },
+  { path: '/refunds', name: 'Refunds', component: Refunds },
+    { path: '*', name: 'Not Found', component: NotFound }
 ]
 
 export default new Router({

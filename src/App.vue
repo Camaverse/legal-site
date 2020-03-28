@@ -1,23 +1,16 @@
 <template lang="pug">
   #app.hasHeaderTags(:class="pathClass")
-    splash
     header-global
     main
         .route
             router-view
-        broadcaster-grid(:items="list")
     footer-global
 </template>
 <script>
-import BroadcasterGrid from '@/components/BroadcasterGrid/BroadcasterGrid'
 import FooterGlobal from '@/components/FooterGlobal'
 import HeaderGlobal from '@/components/HeaderGlobal'
-import Splash from '@/components/Splash'
-import { mapState } from 'vuex'
 export default {
   components: {
-    Splash,
-    BroadcasterGrid,
     FooterGlobal,
     HeaderGlobal
   },
@@ -26,7 +19,6 @@ export default {
       const path = this.$route.path
       return path === '/' ? 'page-home' : 'page-' + path
     },
-    ...mapState('rooms', ['list'])
   }
 }
 </script>
@@ -40,7 +32,7 @@ export default {
     }
     .page-home {
         main {
-            padding: 15px 0 58px 0;
+            padding: 0 0 58px 0;
         }
     }
     .hasDrop + main {
